@@ -1,24 +1,25 @@
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, TextInput, View, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TextInput, Text, TouchableOpacity, Alert } from "react-native";
 
 const App = () => {
   const [name, setName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
 
   const handleSubmit = () => {
-    // Handle the submit action here
-    console.log(name, dateOfBirth);
+    // Use Alert instead of console.log for better compatibility
+    Alert.alert("Submitted Information", `Name: ${name}\nDate of Birth: ${dateOfBirth}`);
   };
 
-  return <SafeAreaView style={styles.container}>
+  return <View style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} onChangeText={setName} value={name} placeholder="Name" keyboardType="default" />
-        <TextInput style={styles.input} onChangeText={setDateOfBirth} value={dateOfBirth} placeholder="Date of Birth" keyboardType="number-pad" />
+        <TextInput style={styles.input} onChangeText={setDateOfBirth} value={dateOfBirth} placeholder="Date of Birth" keyboardType="number-pad" // Changed to number-pad
+      />
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>;
+    </View>;
 };
 
 const styles = StyleSheet.create({
