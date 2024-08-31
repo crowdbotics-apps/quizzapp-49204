@@ -11,11 +11,14 @@ const App = () => {
   };
 
   return <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Опитування</Text>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} onChangeText={setName} value={name} placeholder="Name" keyboardType="default" />
-        <TextInput style={styles.input} onChangeText={setDateOfBirth} value={dateOfBirth} placeholder="Date of Birth" keyboardType="numeric" />
+        <Text style={styles.label}>ПІБ:</Text>
+        <TextInput style={styles.input} onChangeText={setName} value={name} placeholder="Ваше ПІБ" keyboardType="default" />
+        <Text style={styles.label}>Рік народження:</Text>
+        <TextInput style={styles.input} onChangeText={setDateOfBirth} value={dateOfBirth} placeholder="Рік народження" keyboardType="numeric" />
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Submit</Text>
+          <Text style={styles.buttonText}>ПРОДОВЖИТИ</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>;
@@ -26,10 +29,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#FFFFFF"
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 40
   },
   inputContainer: {
     width: "80%"
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 5,
+    color: "#333333"
   },
   input: {
     height: 50,
